@@ -1,0 +1,4 @@
+const statLabels = { habitability: 'Habitability', biodiversity: 'Biodiversity', climateStability: 'Climate stability', resourceAvailability: 'Resources', civilizationPotential: 'Civilization', survivalDifficulty: 'Survival difficulty' }
+export default function PlanetStats({ stats }) {
+  return <section className="panel stats-panel" aria-labelledby="stats-title"><div className="panel-kicker">02 / SIGNAL READOUT</div><div className="stats-title-row"><h2 id="stats-title">Planet statistics</h2><span className="fictional-tag">FICTIONAL MODEL</span></div><p className="panel-note">A playful simulation, not a scientific prediction.</p><div className="stats-list">{Object.entries(stats).map(([key, value]) => <div className="stat" key={key}><div className="stat-label"><span>{statLabels[key]}</span><strong>{value}</strong></div><div className="bar"><span className={`bar-fill ${key}`} style={{ width: `${value}%` }} /></div></div>)}</div></section>
+}
