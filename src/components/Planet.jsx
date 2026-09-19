@@ -1,7 +1,10 @@
 import { Moon, Orbit } from 'lucide-react'
 
-export default function Planet({ config, destroyed = false }) {
+export default function Planet({ config, colorSeed, destroyed = false }) {
   const planetStyle = {
+    '--planet-hue': colorSeed,
+    '--planet-accent': (colorSeed + 55) % 360,
+    '--planet-deep': (colorSeed + 205) % 360,
     '--water': `${Math.max(18, config.water)}%`,
     '--heat': `${config.temperature}%`,
     '--green': `${config.vegetation === 'None' ? 3 : config.vegetation === 'Sparse' ? 20 : config.vegetation === 'Lush' ? 44 : 68}%`,
